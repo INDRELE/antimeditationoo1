@@ -32,12 +32,12 @@
         }
         .centered {
             position: absolute;
-            top: 20%; /* Adjusted top position to fit in the upper part */
+            top: 0; /* Adjusted top position to fit in the upper part */
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, 0);
             width: 100%; /* Occupy the whole width */
             box-sizing: border-box;
-            padding: 0 20px; /* Add padding to prevent the text from touching the edges */
+            padding: 20px; /* Add padding to prevent the text from touching the edges */
             text-align: center;
         }
         h1, h2, p {
@@ -120,8 +120,8 @@
         <!-- Slide 1: Opening Slide -->
         <div id="slide1" class="slide">
             <img class="background-image" src="https://github.com/INDRELE/antimeditationoo1/raw/main/Sequence%2001_1.gif" alt="Image de fond"/>
-            <div class="centered" id="titleContainer">
-                <h1 id="title">ANTI MÉDITATION</h1>
+            <div class="centered">
+                <h1>ANTI MÉDITATION</h1>
             </div>
             <div class="nav-links">
                 <a class="nav-link" href="#notesMusique">Notes sur la musique</a>
@@ -180,16 +180,10 @@
 
         // Function to adjust title size based on screen height
         function adjustTitleSize() {
-            const titleContainer = document.getElementById('titleContainer');
-            const title = document.getElementById('title');
-
-            if (titleContainer && title) {
+            const title = document.querySelector('#slide1 .centered h1');
+            if (title) {
                 const screenHeight = window.innerHeight;
-                const titleContainerHeight = titleContainer.offsetHeight;
-
-                const titleFontSize = Math.min((screenHeight / titleContainerHeight) * 15, 15);
-
-                title.style.fontSize = `${titleFontSize}vh`;
+                title.style.fontSize = `${(screenHeight * 0.2)}px`; // Adjust the multiplier as needed
             }
         }
     </script>
