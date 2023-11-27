@@ -225,50 +225,56 @@
         </div>
 
         <!-- Slide 7: Punk Rock contre le Psychedelisme -->
-        <div id="punkRock" class="slide" style="position: relative; cursor: pointer;">
-            <!-- Background image with hyperlink to the video -->
-            <a href="https://vimeo.com/140869040" target="_blank" style="text-decoration: none; color: inherit; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1;">
-                <div class="background-image-container">
-                    <img class="background-image" src="https://images-film-documentaire.fr/film/E84/0A1E231A53FA479D880569A58E49BE84.jpg" alt="Background Image" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <!-- Hover message element -->
-                <div id="hoverMessage" style="position: absolute; display: none; background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 5px; border-radius: 5px; white-space: nowrap;"></div>
-            </a>
-
-            <!-- Add content for "Punk Rock contre le Psychedelisme" -->
-            <h2 style="position: relative; z-index: 1;">Punk Rock contre le Psychedelisme</h2>
-
-            <!-- Four hyperlinks for this slide -->
-            <div class="nav-links" style="position: relative; z-index: 1;">
-                <a class="nav-link" href="#enfersPersonnels">Enfers personnels</a>
-                <a class="nav-link" href="#notesMusique">Notes sur la musique</a>
-                <a class="nav-link" href="#politiserTranse">Politiser la transe</a>
-                <a class="nav-link" href="#anacoluthe">Anacoluthe</a>
-            </div>
-
-            <p class="refresh-message" style="position: relative; z-index: 1;">Rafraîchir la page pour revenir à la page d'accueil</p>
-
-            <script type="text/javascript">
-                const backgroundLink = document.querySelector('#punkRock a');
-                const hoverMessage = document.getElementById('hoverMessage');
-
-                backgroundLink.addEventListener('mousemove', function (event) {
-                    const message = "Dan Graham - Rock My Religion sur Vimeo";
-                    const offset = 10; // Offset to position the message from the cursor
-                    const x = event.clientX + offset;
-                    const y = event.clientY + offset;
-
-                    hoverMessage.style.display = 'block';
-                    hoverMessage.style.left = `${x}px`;
-                    hoverMessage.style.top = `${y}px`;
-                    hoverMessage.textContent = message;
-                });
-
-                backgroundLink.addEventListener('mouseout', function () {
-                    hoverMessage.style.display = 'none';
-                });
-            </script>
+<div id="punkRock" class="slide" style="position: relative; cursor: pointer;">
+    <!-- Background image with hyperlink to the video -->
+    <a href="https://vimeo.com/140869040" target="_blank" style="text-decoration: none; color: inherit; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1;">
+        <div class="background-image-container">
+            <img class="background-image" src="https://images-film-documentaire.fr/film/E84/0A1E231A53FA479D880569A58E49BE84.jpg" alt="Background Image" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
+        <!-- Hover message element -->
+        <div id="hoverMessage" style="position: absolute; display: none; background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 5px; border-radius: 5px; white-space: nowrap;"></div>
+    </a>
+
+    <!-- Add content for "Punk Rock contre le Psychedelisme" -->
+    <h2 style="position: relative; z-index: 1;">Punk Rock contre le Psychedelisme</h2>
+
+    <!-- Four hyperlinks for this slide -->
+    <div class="nav-links" style="position: relative; z-index: 1;">
+        <a class="nav-link" href="#enfersPersonnels">Enfers personnels</a>
+        <a class="nav-link" href="#notesMusique">Notes sur la musique</a>
+        <a class="nav-link" href="#politiserTranse">Politiser la transe</a>
+        <a class="nav-link" href="#anacoluthe">Anacoluthe</a>
+    </div>
+
+    <!-- Hyperlink button for Vimeo video -->
+    <div class="vimeo-button" style="position: relative; z-index: 1; margin-top: 20px;">
+        <a href="https://vimeo.com/140869040" target="_blank" style="text-decoration: none; color: #fcfafa; background-color: #ffcc00; padding: 10px 20px; border-radius: 5px; display: inline-block; font-size: 1.2em;">Watch Dan Graham - Rock My Religion</a>
+    </div>
+
+    <p class="refresh-message" style="position: relative; z-index: 1;">Rafraîchir la page pour revenir à la page d'accueil</p>
+
+    <script type="text/javascript">
+        const backgroundLink = document.querySelector('#punkRock a');
+        const hoverMessage = document.getElementById('hoverMessage');
+
+        backgroundLink.addEventListener('mousemove', function (event) {
+            const message = "Dan Graham - Rock My Religion sur Vimeo";
+            const offset = 10; // Offset to position the message from the cursor
+            const x = event.clientX + offset;
+            const y = event.clientY + offset;
+
+            hoverMessage.style.display = 'block';
+            hoverMessage.style.left = `${x}px`;
+            hoverMessage.style.top = `${y}px`;
+            hoverMessage.textContent = message;
+        });
+
+        backgroundLink.addEventListener('mouseout', function () {
+            hoverMessage.style.display = 'none';
+        });
+    </script>
+</div>
+
 
         <script type="text/javascript">
             document.addEventListener('DOMContentLoaded', function () {
