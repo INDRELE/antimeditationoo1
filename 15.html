@@ -32,9 +32,13 @@
         }
         .centered {
             position: absolute;
-            top: 50%;
+            top: 20%; /* Adjusted top position to fit in the upper part */
             left: 50%;
             transform: translate(-50%, -50%);
+            width: 100%; /* Occupy the whole width */
+            box-sizing: border-box;
+            padding: 0 20px; /* Add padding to prevent the text from touching the edges */
+            text-align: center;
         }
         h1, h2, p {
             color: #dda0dd; /* Warm violet text color */
@@ -109,19 +113,67 @@
             transform: translateX(-50%);
             color: #fcfafa; /* Blanc cassé (almost white) text color */
         }
-
-        /* Enlarging and making the title take up the whole width for the first slide */
-        #slide1 .centered h1 {
-            font-size: 15em; /* Adjust the font size as needed */
-            max-height: 70vh; /* Set a maximum height for the title */
-            width: 100%;
-            box-sizing: border-box;
-            padding: 0 20px; /* Add padding to prevent the text from touching the edges */
-            text-align: center; /* Center the text within the width */
-        }
     --></style>
 </head>
 <body>
     <div class="presentation">
         <!-- Slide 1: Opening Slide -->
-        <div
+        <div id="slide1" class="slide">
+            <img class="background-image" src="https://github.com/INDRELE/antimeditationoo1/raw/main/Sequence%2001_1.gif" alt="Image de fond"/>
+            <div class="centered">
+                <h1>ANTI MÉDITATION</h1>
+            </div>
+            <div class="nav-links">
+                <a class="nav-link" href="#notesMusique">Notes sur la musique</a>
+                <a class="nav-link" href="#notesArchitecture">Notes sur l'architecture</a>
+                <a class="nav-link" href="#notesPeinture">Notes sur la peinture</a>
+                <a class="nav-link" href="#conclusion">Conclusion?</a>
+            </div>
+            <p class="refresh-message">Rafraîchir la page pour revenir à la page d'accueil</p>
+        </div>
+
+        <!-- Rest of the slides ... -->
+    </div>
+
+    <script type="text/javascript">
+        // JavaScript for handling slide navigation
+        document.addEventListener('DOMContentLoaded', function () {
+            showSlide('slide1'); // Show the first slide initially
+        });
+
+        function showSlide(slideId) {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => {
+                slide.style.display = 'none';
+            });
+
+            const selectedSlide = document.getElementById(slideId);
+            if (selectedSlide) {
+                selectedSlide.style.display = 'block';
+                // Pause other audio players when changing slides
+                pauseOtherPlayers(selectedSlide);
+            }
+        }
+
+        // Navigation Links
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const targetSlideId = this.getAttribute('href').substring(1);
+                showSlide(targetSlideId);
+            });
+        });
+
+        // Function to pause other audio players
+        function pauseOtherPlayers(currentSlide) {
+            const audioPlayers = document.querySelectorAll('.audio-player audio');
+            audioPlayers.forEach(player => {
+                if (player.parentNode.parentNode !== currentSlide) {
+                    player.pause();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
