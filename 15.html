@@ -120,8 +120,8 @@
         <!-- Slide 1: Opening Slide -->
         <div id="slide1" class="slide">
             <img class="background-image" src="https://github.com/INDRELE/antimeditationoo1/raw/main/Sequence%2001_1.gif" alt="Image de fond"/>
-            <div class="centered">
-                <h1>ANTI MÉDITATION</h1>
+            <div class="centered" id="titleContainer">
+                <h1 id="title">ANTI MÉDITATION</h1>
             </div>
             <div class="nav-links">
                 <a class="nav-link" href="#notesMusique">Notes sur la musique</a>
@@ -139,7 +139,10 @@
         // JavaScript for handling slide navigation
         document.addEventListener('DOMContentLoaded', function () {
             showSlide('slide1'); // Show the first slide initially
+            adjustTitleSize(); // Adjust title size initially
         });
+
+        window.addEventListener('resize', adjustTitleSize); // Adjust title size on window resize
 
         function showSlide(slideId) {
             const slides = document.querySelectorAll('.slide');
@@ -173,6 +176,21 @@
                     player.pause();
                 }
             });
+        }
+
+        // Function to adjust title size based on screen height
+        function adjustTitleSize() {
+            const titleContainer = document.getElementById('titleContainer');
+            const title = document.getElementById('title');
+
+            if (titleContainer && title) {
+                const screenHeight = window.innerHeight;
+                const titleContainerHeight = titleContainer.offsetHeight;
+
+                const titleFontSize = Math.min((screenHeight / titleContainerHeight) * 15, 15);
+
+                title.style.fontSize = `${titleFontSize}vh`;
+            }
         }
     </script>
 </body>
